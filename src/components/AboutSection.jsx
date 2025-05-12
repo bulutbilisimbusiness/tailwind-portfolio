@@ -1,6 +1,7 @@
 import { Code, User, Briefcase } from "lucide-react";
 
 export const AboutSection = () => {
+	// about section
 	return (
 		<section id="about" className="py-24 px-4 relative">
 			<div className="container mx-auto max-w-5xl">
