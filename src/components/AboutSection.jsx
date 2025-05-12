@@ -28,8 +28,9 @@ export const AboutSection = () => {
 								Get In Touch
 							</a>
 							<a
-								href=""
+								href="/Erhan_Bulut_wp.pdf"
 								className="px-6 py-2 rounded-full border-primary text-primary hover:bg-primary/10 transitions-colors duration-300"
+								target="_blank"
 							>
 								Download CV
 							</a>

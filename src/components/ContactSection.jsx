@@ -10,20 +10,42 @@ import {
 import { cn } from "@/lib/utils";
 import { useToast } from "@/hooks/use-toast.js";
 import { useState } from "react";
+import emailjs from "emailjs-com";
+
 export const ContactSection = () => {
 	const { toast } = useToast();
 	const [isSubmitting, setIsSubmitting] = useState(false);
+	const [formData, setFormData] = useState({
+		name: "",
+		email: "",
+		message: "",
+	});
+	const SERVICE_ID = import.meta.env.VITE_SERVICE_ID;
+	const TEMPLATE_ID = import.meta.env.VITE_TEMPLATE_ID;
+	const PUBLIC_KEY = import.meta.env.VITE_PUBLIC_KEY;
 	const handleSubmit = (e) => {
 		e.preventDefault();
 		setIsSubmitting(true);
-		setTimeout(() => {
-			toast({
-				title: "Message sent successfully",
-				description: "Thank you for your message. I'll get back to you soon.",
-			});
-			setIsSubmitting(false);
-		}, 1500);
+
+		emailjs
+			.sendForm(SERVICE_ID, TEMPLATE_ID, e.target, PUBLIC_KEY)
+			.then(() => {
+				toast({
+					title: "Message sent successfully",
+					description: "Thank you! I'll get back to you soon.",
+				});
+				setFormData({ name: "", email: "", message: "" });
+			})
+			.catch(() => {
+				toast({
+					title: "Error",
+					description: "Something went wrong. Please try again.",
+					variant: "destructive",
+				});
+			})
+			.finally(() => setIsSubmitting(false));
 	};
+
 	return (
 		<section id="contact" className="py-24 px-4 relative bg-secondary/30">
 			<div className="container mx-auto max-w-5xl">
@@ -96,12 +118,9 @@ export const ContactSection = () => {
 							</div>
 						</div>
 					</div>
-					<div
-						className="bg-card p-8 rounded-lg shadow-xs"
-						onSubmit={handleSubmit}
-					>
+					<div className="bg-card p-8 rounded-lg shadow-xs">
 						<h3 className="text-2xl font-semibold mb-6"> Send a Message</h3>
-						<form className="space-y-6">
+						<form className="space-y-6" onSubmit={handleSubmit}>
 							<div>
 								<label
 									htmlFor="name"
@@ -114,9 +133,13 @@ export const ContactSection = () => {
 									type="text"
 									id="name"
 									name="name"
+									value={formData.name}
 									required
 									className="w-full px-4 py-3 rounded-md border border-input bg-background focus:outline-hidden focus:ring-2 focus:ring-primary"
 									placeholder="Erhan Bulut..."
+									onChange={(e) =>
+										setFormData({ ...formData, name: e.target.value })
+									}
 								/>
 							</div>
 							<div>
@@ -131,9 +154,13 @@ export const ContactSection = () => {
 									type="email"
 									id="email"
 									name="email"
+									value={formData.email}
 									required
 									className="w-full px-4 py-3 rounded-md border border-input bg-background focus:outline-hidden focus:ring-2 focus:ring-primary"
 									placeholder="john@gmail.com"
+									onChange={(e) =>
+										setFormData({ ...formData, email: e.target.value })
+									}
 								/>
 							</div>
 							<div>
@@ -147,9 +174,13 @@ export const ContactSection = () => {
 								<textarea
 									id="message"
 									name="message"
+									value={formData.message}
 									required
 									className="w-full px-4 py-3 rounded-md border border-input bg-background focus:outline-hidden focus:ring-2 focus:ring-primary resize-none"
 									placeholder="Hello,I'd like to talk about ..."
+									onChange={(e) =>
+										setFormData({ ...formData, message: e.target.value })
+									}
 								/>
 							</div>
 							<button
