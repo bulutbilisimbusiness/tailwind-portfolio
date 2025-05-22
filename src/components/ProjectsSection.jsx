@@ -1,4 +1,4 @@
-import { ExternalLink, Github, ArrowRight } from "lucide-react";
+import { ArrowRight, ExternalLink, Github } from "lucide-react";
 const projects = [
 	{
 		id: 1,
@@ -11,12 +11,13 @@ const projects = [
 	},
 	{
 		id: 2,
-		title: "Trending Movies",
-		description: "A beautiful movies page app using React and Tailwind.",
-		image: "/projects/project1.png",
-		tags: ["React", "TailwindCSS", "appwrite"],
-		demoUrl: "https://vire-livid.vercel.app/",
-		githubUrl: "https://github.com/bulutbilisimbusiness/vire/tree/main",
+		title: "Chat Application",
+		description:
+			" It is a real-time, modern chat application developed with React, Node.js, Express, Socket.IO, MongoDB, Tailwind CSS, and cloud-based services",
+		image: "/projects/project2.png",
+		tags: ["React", "TailwindCSS", "Node.js", "Socket.IO", "MongoDB"],
+		demoUrl: "https://chat-app-frontend-five-olive.vercel.app/",
+		githubUrl: "https://github.com/bulutbilisimbusiness/chat-app/tree/main",
 	},
 	{
 		id: 3,
