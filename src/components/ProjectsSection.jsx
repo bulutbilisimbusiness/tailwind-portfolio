@@ -21,12 +21,13 @@ const projects = [
 	},
 	{
 		id: 3,
-		title: "Trending Movies",
-		description: "A beautiful movies page app using React and Tailwind.",
-		image: "/projects/project1.png",
-		tags: ["React", "TailwindCSS", "appwrite"],
-		demoUrl: "https://vire-livid.vercel.app/",
-		githubUrl: "https://github.com/bulutbilisimbusiness/vire/tree/main",
+		title: "Job Landing Page",
+		description:
+			"Find top tech talent faster with DevHire – the smart way to hire developers.",
+		image: "/projects/project3.png",
+		tags: ["Next", "TailwindCSS", "AOS"],
+		demoUrl: "https://job-landing-plum.vercel.app/",
+		githubUrl: "https://github.com/bulutbilisimbusiness/job_landing",
 	},
 ];
 
