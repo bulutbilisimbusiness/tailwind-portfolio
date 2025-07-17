@@ -29,6 +29,16 @@ const projects = [
 		demoUrl: "https://job-landing-plum.vercel.app/",
 		githubUrl: "https://github.com/bulutbilisimbusiness/job_landing",
 	},
+	{
+		id: 4,
+		title: "PyFast",
+		description:
+			"PyFast is an AI-powered coding challenge generator that helps you create coding challenges for your programming courses.",
+		image: "/projects/project4.png",
+		tags: ["React", "Vite", "Groq API", "Clerk"],
+		demoUrl: "https://py-fast-frontend-railway.vercel.app/",
+		githubUrl: "https://github.com/bulutbilisimbusiness/pyFast_frontend",
+	},
 ];
 
 export const ProjectsSection = () => {
